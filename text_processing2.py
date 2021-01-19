@@ -34,11 +34,13 @@ def digits_to_words(input_string):
         for i in input_string:
             if i.isdigit():
                 digit_list += i
-
-        digit_string = ''
-        for i in digit_list[:-1]:
-            digit_string += digit[i] + ' '
-        digit_string += digit[digit_list[-1]]
+        if digit_list != '':
+            digit_string = ''
+            for i in digit_list[:-1]:
+                digit_string += digit[i] + ' '
+            digit_string += digit[digit_list[-1]]
+        else:
+            digit_string = ''
     else:
         digit_string = ''
     return digit_string
