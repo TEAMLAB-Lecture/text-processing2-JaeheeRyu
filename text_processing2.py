@@ -75,17 +75,20 @@ def to_camel_case(underscore_str):
             "alreadyCamel"
     """
     output_str = underscore_str[:]
-    output_str = output_str.lower()
-    while True:
-        try:
-            if '_' in output_str:
-                idx = output_str.index('_')
-                output_str = output_str[:idx] + output_str[idx+1].upper() + output_str[idx+2:]
-            else:
+    if '_' in output_str:
+        output_str = underscore_str[:]
+        output_str = output_str.lower()
+        while True:
+            try:
+                if '_' in output_str:
+
+                    idx = output_str.index('_')
+                    output_str = output_str[:idx] + output_str[idx+1].upper() + output_str[idx+2:]
+                else:
+                    break
+            except:
                 break
-        except:
-            break
-    output_str = output_str[0].lower()+output_str[1:]
+        output_str = output_str[0].lower()+output_str[1:]
     if '_' in output_str:
         output_str = output_str.replace('_', '')
     camelcase_str = output_str
